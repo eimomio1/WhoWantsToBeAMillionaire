@@ -9,6 +9,33 @@
 <head>
     <title>Question 1</title>
     <link href="question.css"  rel="stylesheet">
+    <script>
+      // Function to redirect the page
+      function redirectPage() {
+        window.location.href = "login.php"; // Replace "login.php" with the desired redirection URL
+      }
+
+      // Start the timer when the page is loaded
+      window.onload = function() {
+        var seconds = 25;
+        var timerElement = document.getElementById("timer");
+
+         // Function to update the timer
+  function updateTimer() {
+    seconds--;
+    timerElement.textContent = seconds;
+
+ 
+    if (seconds <= 0) {
+      clearInterval(timerInterval);
+      redirectPage();
+    }
+  }
+
+  // Update the timer every second
+  var timerInterval = setInterval(updateTimer, 1000);
+};
+    </script>
 </head>
 <body>
     <!--Title and banner-->
@@ -48,6 +75,9 @@
                 <input type="submit" value="Submit Answer" class="submit">
             </p>
         </form>
+    </div>
+    <div class="timerBox">
+        <p>Time remaining: <span id="timer">25</span> seconds</p>
     </div>
 </body>
 </html>

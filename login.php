@@ -14,22 +14,24 @@
     </div>
     <p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
 
-    <!--main area-->
+  <!--main area-->
     <div class="options">
-        <form action="login-submit.php" method="GET">
-            <fieldset>
-                <legend><strong>New Game:</strong></legend>
-                <!--Name-->
-                <strong>Name:</strong>
-                <input type="text" name="name" size="16" />
-                <br />
-                <br />
+  <form action="login-submit.php" method="GET">
+    <fieldset>
+      <legend><strong>New Game:</strong></legend>
+      <!-- Name -->
+      <strong>Name:</strong>
+      <input type="text" name="name" size="16" />
+      <br />
+      <br />
 
-                <!--To start the Game-->
-                <input type="submit" value="Start Game"/>
-            </fieldset>
-        </form>
-    </div>
+      <!-- Start Game -->
+      <div class="container">
+        <input class="start-button" type="submit" value="Start Game" />
+      </div>
+    </fieldset>
+  </form>
+</div>
     <br />
     <br />
     <?php 

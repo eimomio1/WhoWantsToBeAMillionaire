@@ -40,6 +40,8 @@
                 return true;
             }
         }
+        //to sort the array?
+        arsort($name_parts, SORT_NATURAL);
     ?>
     <!--To get to the leaderboard page-->
     <div id="scroll-container">

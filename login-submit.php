@@ -1,8 +1,11 @@
 <?php
+require __DIR__ . "/common.php" ;
+get_header();
+
 //checking to see if there is a name submited
 if (empty($_POST["name"])) {
     //if no name is submited then we return this
-    echo "Please enter the name";
+    echo "Please enter your name";
     return $failed;
 }
 //checking to see if there is a unique player name
@@ -14,7 +17,7 @@ if (check_name($_POST["name"])) {
 //checking if the user input did not fail
 if(true){
     //posting the players name into the players.txt
-    $userData = $_POST['name']
+    $userData = $_POST['name'];
     file_put_contents("players.txt", "\n" . $userData, FILE_APPEND);
 }
 ?>

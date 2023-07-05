@@ -22,4 +22,25 @@
         }
     }
 }
+
+    function get_header(){
+        ?>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Who Wants to be a millionaire</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <img src="./millionaire.avif" alt="logo" class="banner"/>
+        <br />
+    </div>
+
+    
+    <?php
+
+    }
 ?>

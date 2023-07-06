@@ -1,0 +1,19 @@
+.banner{
+    display: block;
+    max-width: 100%;
+    width:500px;
+    height:500px;
+    height:auto;
+    margin-left: auto;
+    margin-right:auto;
+}
+.bannerText{
+    text-align: center;
+}
+.ending{
+    color:red;
+    text-align: center;
+}
+.homeLink{
+    text-align: center; 
+}

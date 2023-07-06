@@ -1,8 +1,11 @@
 <?php
 require __DIR__ . "/common.php" ;
 get_header();
-
+$data = file("./userdata/playerinfo.txt", FILE_SKIP_EMPTY_LINES);
+print_r($data);
 //checking to see if there is a name submited
+$errors = array();
+$u_attrs; 
 if (empty($_POST["name"])) {
     //if no name is submited then we return this
     echo "Please enter your name";

@@ -1,31 +1,22 @@
 <?php
-    $answer = $_POST['answer'];
-    $check = strcmp($answer, "true");
-    // $username = $_SESSION["username"];
-    // $password = $_SESSION["password"];
-    $score = $_SESSION["score"];
-    $amount = $_SESSION["amount"];
-
-    if($check != 0){
-        //checks the post
-        $lines = file("player.txt");
-        $result = ' ';
-
-        foreach($lines as $line){
-            //updating the scores
-            $data = explode(',', $line);
-            if($data[0] == $username){
-                $result .= $username . "," . $password . "," . $score . "," . $amount . "\n";
-            }
-            else{
-                $result .= $line;
-            }
-        }
-        //puting the score into the player text
-        file_put_contents('player.txt', $result);
-        //going to the lost page when u lose
-        header("Location: lose.php");
-        exit;
-
-    }
+	require_once "common.php";
+	session_start();
+	
+	// Check whether the provided answer is correct.
+	$answer = $_POST["answer"];
+	$is_correct = check_answer($answer);
+	if ($is_correct) $_SESSION["q_num"] += 1;
+	else {
+		header("Location: lose.php");
+		exit();
+	}
+	
+	// Check whether the player has correctly answered all questions.
+	if ($_SESSION["q_num"] <= 15) header("Location: question.php");
+	else {
+		header("Location: winner.php");
+		exit();
+	}
+	
+	exit();
 ?>

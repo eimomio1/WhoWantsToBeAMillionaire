@@ -1,20 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>WINNER</title>
-    <link href="endGame.css"  rel="stylesheet">
-</head>
-<body>
-    <div>
-        <p class="bannerText"><strong>WHO WANTS TO BE A MILLIONAIRE<strong></p>
-        <br/>
-        <img src="./millionaire.avif" alt="logo" class="banner"/>
-        <br/>
-        <p class="ending"><strong>You Win!!!<strong></p>
-
-    <!--This is the hyperlink back to the main page-->
-    <p class="homeLink"><a href="index.php">Back to Main Page</a></p>
-
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<link href="endGame.css" rel="stylesheet">
+		<title>Who Wants to Be a Millionaire?</title>
+	</head>
+	<body>
+		<?php
+			
+			// Save the player's score.
+			session_start();
+			$name = $_SESSION["name"];
+			$q_num = $_SESSION["q_num"];
+			require_once "common.php";
+			$score = get_score($q_num - 1);
+			save_score($name, $score);
+			
+			// Clear the session.
+			session_destroy();
+		?>
+		<div>
+			<img src="./millionaire.avif" alt="logo" class="banner">
+			<br>
+			<p class="ending"><strong>You Won!!!<strong></p>
+			
+			<!-- Player name and score -->
+			<p class="bannerText"><?= "{$name}<br>\${$score}" ?></p>
+			
+			<!-- Link to login -->
+			<p class="homeLink"><a href="login.php">Back to login</a></p>
+		</div>
+	</body>
 </html>

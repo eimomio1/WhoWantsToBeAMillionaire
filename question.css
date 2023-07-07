@@ -1,117 +1,113 @@
-
-
 body {
-  background-color: #f5f7fa;
-  background-image: linear-gradient(to bottom, #b9d2e6, #f5f7fa);
+	background-color: #f5f7fa;
+	background-image: linear-gradient(to bottom, #b9d2e6, #f5f7fa);
 }
 
 .gameName{
-    text-align: center;
-  font-size: 15px;
-  margin-top: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-family: "Arial", sans-serif;
-  color: #ff9900;
-  animation: fancy-animation 3s ease-in-out infinite alternate;
-	
+	text-align: center;
+	font-size: 15px;
+	margin-top: 20px;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	font-family: "Arial", sans-serif;
+	color: #ff9900;
+	animation: fancy-animation 3s ease-in-out infinite alternate;
 }
 
 @keyframes fancy-animation {
-  0% {
-    transform: scale(1);
-    color: #ff9900;
-  }
-  50% {
-    transform: scale(1.2);
-    color: #ffcc00;
-  }
-  100% {
-    transform: scale(1);
-    color: #ff9900;
-  }
+	0% {
+		transform: scale(1);
+		color: #ff9900;
+	}
+	50% {
+		transform: scale(1.2);
+		color: #ffcc00;
+	}
+	100% {
+		transform: scale(1);
+		color: #ff9900;
+	}
 }
-.logo{
-    display: block;
-    max-width: 100%;
-    width:500px;
-    height:500px;
-    height:auto;
-    margin-left: auto;
-    margin-right:auto;
+
+.logo {
+	display: block;
+	max-width: 100%;
+	width:500px;
+	height:500px;
+	height:auto;
+	margin-left: auto;
+	margin-right:auto;
 }
-.money{
-    width:100%;
-    text-align: center;
-	 color: #ff9900;
+	
+.money {
+	font-size: 32pt;
+	width:100%;
+	text-align: center;
+		color: #ff9900;
 }
+
 .questionTable {
 	background-color: #FFD700;
-  border: 2px solid black;
-  text-align: center;
-  vertical-align: middle;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  max-width: 500px;
-  padding: 20px;
-  border-radius: 10px;
-  
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	border: 2px solid black;
+	text-align: center;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	max-width: 500px;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .questionTable td {
-  padding: 10px;
+	padding: 10px;
 }
 
 .submitAnswer {
-  text-align: center;
-  margin-top: 20px;
+	text-align: center;
+	margin-top: 20px;
 }
 
 .submitAnswer .submit {
-  background-color: #ffcc00;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+	background-color: #ffcc00;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
 }
 
 .submitAnswer p {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333333; 
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-  animation: text-animation 3s ease-in-out infinite;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333333; 
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+	animation: text-animation 3s ease-in-out infinite;
 }
 
-
-
-
 .submitAnswer select {
-  width: 75px; 
-  padding: 8px; 
-  font-size: 16px; 
-  border: 2px solid #ffcc00;
-  border-radius: 5px; 
-  background-color: #f5f7fa; 
-  color: #333333; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+	width: 75px; 
+	padding: 8px; 
+	font-size: 16px; 
+	border: 2px solid #ffcc00;
+	border-radius: 5px; 
+	background-color: #f5f7fa; 
+	color: #333333; 
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
 }
 
 .timerBox {
-  text-align: center;
-  margin-top: 20px;
+	text-align: center;
+	margin-top: 20px;
 }
 
 .timerBox p {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333333;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+	font-size: 18px;
+	font-weight: bold;
+	color: #333333;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-

@@ -1,20 +1,25 @@
 <?php
-//checking to see if there is a name submited
-if (empty($_POST["name"])) {
-    //if no name is submited then we return this
-    echo "Please enter the name";
-    return $failed;
-}
-//checking to see if there is a unique player name
-if (check_name($_POST["name"])) {
-    //if there is no unique player name we return this
-    echo "User name already exists, please enter another name";
-    return $failed;
-}
-//checking if the user input did not fail
-if(true){
-    //posting the players name into the players.txt
-    $userData = $_POST['name']
-    file_put_contents("players.txt", "\n" . $userData, FILE_APPEND);
-}
+	require_once "common.php";
+	session_start();
+	
+	// If the name is left blank, go back a display an error message.
+	if (empty($_POST["name"])) {
+		$_SESSION["error"] = "Please enter a name.";
+		header("Location: login.php");
+		exit();
+	}
+	
+	// If the name is already taken, go back a display an error message.
+	if (check_name($_POST["name"])) {
+		$_SESSION["error"] = "That name already exists. Please enter another name.";
+		header("Location: login.php");
+		exit();
+	}
+	
+	// Store the player's name in a session variable.
+	$_SESSION["name"] = $_POST["name"];
+	
+	// Go to the first question.
+	header("Location: question.php");
+	exit();
 ?>

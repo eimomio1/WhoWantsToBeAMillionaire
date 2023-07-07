@@ -1,55 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Who Wants to be a millionaire</title>
-    <link href="style.css" rel="stylesheet">
-</head>
-
-<body>
-    <div>
-        <img src="./millionaire.avif" alt="logo" class="banner"/>
-        <br />
-    </div>
-    <p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
-
-  <!--main area-->
-    <div class="options">
-  <form action="login-submit.php" method="GET">
-    <fieldset>
-      <legend><strong>New Game:</strong></legend>
-      <!-- Name -->
-      <strong>Name:</strong>
-      <input type="text" name="name" size="16" />
-      <br />
-      <br />
-
-      <!-- Start Game -->
-      <div class="container">
-        <input class="start-button" type="submit" value="Start Game" />
-      </div>
-    </fieldset>
-  </form>
-</div>
-    <br />
-    <br />
-    <?php 
-        $user_info = explode("\n", file_get_contents('./players.txt'));
-        foreach ($user_info as $sub_user_info) {
-            $name_parts = explode(",", $sub_user_info);
-            if ($name_parts[0] == $username) {
-                return true;
-            }
-        }
-        //to sort the array?
-        arsort($name_parts, SORT_NATURAL);
-    ?>
-    <!--To get to the leaderboard page-->
-    <div id="scroll-container">
-        <div id="scroll-text">
-        <?= $name_parts[0], " " . $name_parts[1] ?><br /><br />
-        <div>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<link href="style.css" rel="stylesheet">
+		<title>Who Wants to Be a Millionaire?</title>
+	</head>
+	<body>
+		
+		<!-- Header image and text -->
+		<div>
+			<img src="./millionaire.avif" alt="logo" class="banner"/>
+			<br>
+		</div>
+		<p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
+		
+		<!-- Main form -->
+		<div class="options">
+			<form action="login-submit.php" method="POST">
+				<fieldset>
+					<legend><strong>New Game:</strong></legend>
+					
+					<!-- Name -->
+					<strong>Name:</strong>
+					<input type="text" name="name" size="16">
+					<br>
+					
+					<!-- Start game -->
+					<div class="container">
+						<input class="start-button" type="submit" value="Start Game" />
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<br><br>
+		
+		<!-- Leaderboard -->
+		<div id="scroll-container">
+			<div id="scroll-text">
+				<?php
+					require_once "common.php";
+					get_leaderboard_data();
+				?>
+			</div>
+		</div>
+		
+		<!-- Error messages -->
+		<?php
+		
+			// Print any error messages from login-submit.php.
+			session_start();
+			if (isset($_SESSION["error"])) {
+				$error_message = $_SESSION["error"];
+				echo "<script>alert('{$error_message}')</script>";
+			}
+			
+			// Clear the session.
+			session_destroy();
+		?>
+	</body>
 </html>

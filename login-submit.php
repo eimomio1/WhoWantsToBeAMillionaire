@@ -16,7 +16,8 @@
 		exit();
 	}
 	
-	// Store the player's name in a session variable.
+	// Store the category and the player's name in session variables.
+	$_SESSION["category"] = $_POST["category"];
 	$_SESSION["name"] = $_POST["name"];
 	
 	// Go to the first question.

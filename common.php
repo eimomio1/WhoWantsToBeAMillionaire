@@ -176,4 +176,82 @@
 		fwrite($file, $result);
 		fclose($file);
 	}
+
+    function getuserdata($username)
+{
+    $user_info = explode("\n", file_get_contents('./players.txt'));
+    foreach ($user_info as $sub_user_info) {
+        $name_parts = explode(",", $sub_user_info);
+        if ($name_parts[0] == $username) {
+            return $name_parts;
+        }
+    }
+}
+
+    function generate_login(string $loc){
+        ?>
+        <!DOCTYPE html>
+        <html>
+        <div class="options">
+        <form action="<?php echo $loc ?>" method="post">
+            <fieldset>
+                <legend><strong>Login:</strong></legend>
+                <!--Name-->
+                <strong>Name:</strong>
+                <input type="text" name="name" size="16" pattern="^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$" title = 'Name must be letters only' required>
+                <br />
+                <br />
+                <strong>Password:</strong>
+                <input type ="text" name = "password" required>
+                </br>
+                </br>
+                <!-- Category -->
+					      <strong>Category:</strong>
+					      <select name="category" required>
+					    	<option value="general">General Knowledge</option>
+					    	<option value="comp_sci">Computer Science</option>
+					    	<option value="video_games">Video Games</option>
+					</select>
+					<br>
+
+					<!-- Start game -->
+					<div class="container">
+						<input class="start-button" type="submit" value="Start Game" />
+					</div>
+            </fieldset>
+            </br>
+        
+            <fieldset>
+            <strong>No account?</strong></br>
+            <a href = 'signup.php'>Create an Account</a>
+            </fieldset>
+    </form>
+            </html>
+
+
+
+    <?php
+    }
+    function get_header(){
+        ?>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+
+    <meta charset="utf-8">
+    <title>Who Wants to be a millionaire</title>
+</head>
+
+<body>
+    <div>
+        <img src="./millionaire.avif" alt="logo" class="banner"/>
+        <br />
+    </div>
+
+    
+    <?php
+
+    }
+
+
 ?>

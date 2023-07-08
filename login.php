@@ -14,57 +14,25 @@
 		</div>
 		<p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
 		
-		<!-- Main form -->
-		<div class="options">
-			<form action="login-submit.php" method="POST">
-				<fieldset>
-					<legend><strong>New Game:</strong></legend>
-					
-					<!-- Name -->
-					<strong>Name:</strong>
-					<input type="text" name="name" size="16">
-					<br>
-					
-					<!-- Category -->
-					<strong>Category:</strong>
-					<select name="category">
-						<option value="general">General Knowledge</option>
-						<option value="comp_sci">Computer Science</option>
-						<option value="video_games">Video Games</option>
-					</select>
-					<br>
-					
-					<!-- Start game -->
-					<div class="container">
-						<input class="start-button" type="submit" value="Start Game" />
-					</div>
-				</fieldset>
-			</form>
-		</div>
-		<br><br>
-		
-		<!-- Leaderboard -->
-		<div id="scroll-container">
+    <!--main area-->
+<?php
+require __DIR__ . "/common.php" ;
+?>
+<div>
+<?php
+generate_login('login-submit.php');
+?>
+</div>
+<br>
+    	<!-- Leaderboard -->
+		<div id="scroll-container" style = "position:static">
 			<div id="scroll-text">
 				<?php
-					require_once "common.php";
 					get_leaderboard_data();
 				?>
 			</div>
 		</div>
-		
-		<!-- Error messages -->
-		<?php
-		
-			// Print any error messages from login-submit.php.
-			session_start();
-			if (isset($_SESSION["error"])) {
-				$error_message = $_SESSION["error"];
-				echo "<script>alert('{$error_message}')</script>";
-			}
-			
-			// Clear the session.
-			session_destroy();
-		?>
-	</body>
+
+
+</body>
 </html>

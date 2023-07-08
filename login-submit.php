@@ -1,26 +1,67 @@
 <?php
-	require_once "common.php";
-	session_start();
-	
-	// If the name is left blank, go back a display an error message.
-	if (empty($_POST["name"])) {
-		$_SESSION["error"] = "Please enter a name.";
-		header("Location: login.php");
-		exit();
-	}
-	
-	// If the name is already taken, go back a display an error message.
-	if (check_name($_POST["name"])) {
-		$_SESSION["error"] = "That name already exists. Please enter another name.";
-		header("Location: login.php");
-		exit();
-	}
-	
-	// Store the category and the player's name in session variables.
-	$_SESSION["category"] = $_POST["category"];
-	$_SESSION["name"] = $_POST["name"];
-	
-	// Go to the first question.
-	header("Location: question.php");
-	exit();
+require __DIR__ . "/common.php" ;
+session_start();
+get_header();
+
+$data = file("./userdata/playerinfo.txt", FILE_SKIP_EMPTY_LINES);
+$_SESSION["category"] = $_POST["category"];
+$_SESSION["name"] = $_POST["name"];
+
+// Checking if there is a name submitted
+if (count($_POST) === 3) {
+    ?><br><br><?php
+
+
+    foreach($data as $value){
+        // Splitting each line of data into an array
+        $value = explode(",",$value);
+
+        // Comparing submitted username with current value
+        if(in_array($_POST["name"], $value)){
+            // Checking if the password matches
+            if($value[1] == $_POST["password"]){
+                // If username and password are correct, redirect to question.php
+                ?>
+                <div style='text-align:center'>
+                    <h2>Username and password found!</h2><br>
+                <?php
+
+                header("Location: question.php");
+                exit();
+            }
+            else{
+                // Invalid password
+                ?>
+                <div style='text-align:center'>
+                    <h2>Invalid Password!</h2><br>
+                    <a href="login.php">Try again!</a>
+                <?php
+                session_destroy();
+                exit();
+            }
+        }
+        // If username is not found, continue to the next iteration
+        else{
+            continue;
+        }
+    }
+    
+    // If the loop completes without finding a matching username
+    ?>
+    <div style='text-align:center'>
+        <h2>Name not found!</h2><br>
+        <a href="login.php">Try again!</a>
+    <?php
+    session_destroy();
+    exit();
+}
+else{
+    // Handling case where user input is incomplete
+    echo "Please fill out all inputs!";
+    ?>
+    <a href="login.php">Try Again</a>
+    <?php
+    session_destroy();
+    exit();
+}
 ?>

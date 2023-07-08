@@ -19,16 +19,15 @@
 			// Clear the session.
 			session_destroy();
 		?>
-		<div>
-			<img src="./millionaire.avif" alt="logo" class="banner">
-			<br>
-			<p class="ending"><strong>You Lost.<strong></p>
-			
-			<!-- Player name and score -->
-			<p class="bannerText"><?= "{$name}<br>\${$score}" ?></p>
-			
-			<!-- Link to login -->
-			<p class="homeLink"><a href="login.php">Back to login</a></p>
-		</div>
+		
+		<img src="./millionaire.avif" alt="logo" class="banner" id="circle_mask">
+		<p>Your winnings:</p>
+		
+		<!-- Player name and score -->
+		<p class="ending"><?= "\${$score}" ?></p>
+		<p>Thanks for playing, <?= $name ?>!</p>
+		
+		<!-- Link to login -->
+		<p><a href="login.php">Back to login</a></p>
 	</body>
 </html>

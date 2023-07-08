@@ -1,49 +1,25 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<link href="style.css" rel="stylesheet">
-		<title>Who Wants to Be a Millionaire?</title>
-	</head>
-	<body>
-		
-		<!-- Header image and text -->
-		<div>
-			<img src="./millionaire.avif" alt="logo" class="banner"/>
-			<br>
-		</div>
-		<p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
-		
-		<!-- Main form -->
-		<div class="options">
-			<form action="login-submit.php" method="POST">
-				<fieldset>
-					<legend><strong>New Game:</strong></legend>
-					
-					<!-- Name -->
-					<strong>Name:</strong>
-					<input type="text" name="name" size="16">
-					<br>
-					
-					<!-- Category -->
-					<strong>Category:</strong>
-					<select name="category">
-						<option value="general">General Knowledge</option>
-						<option value="comp_sci">Computer Science</option>
-						<option value="video_games">Video Games</option>
-					</select>
-					<br>
-					
-					<!-- Start game -->
-					<div class="container">
-						<input class="start-button" type="submit" value="Start Game" />
-					</div>
-				</fieldset>
-			</form>
-		</div>
-		<br><br>
-		
-		<!-- Leaderboard -->
+<?php
+require __DIR__ . "/common.php" ;
+get_header();
+?>
+    <p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
+
+    <!--main area-->
+<?php
+generate_login('login-submit.php');
+?>
+    <br />
+    <br />
+    <?php 
+        $user_info = explode("\n", file_get_contents('./userdata/playerinfo.txt'));
+        foreach ($user_info as $sub_user_info) {
+            $name_parts = explode(",", $sub_user_info);
+            if ($name_parts[0] == $username) {
+                return true;
+            }
+        }
+    ?>
+    	<!-- Leaderboard -->
 		<div id="scroll-container">
 			<div id="scroll-text">
 				<?php
@@ -52,19 +28,5 @@
 				?>
 			</div>
 		</div>
-		
-		<!-- Error messages -->
-		<?php
-		
-			// Print any error messages from login-submit.php.
-			session_start();
-			if (isset($_SESSION["error"])) {
-				$error_message = $_SESSION["error"];
-				echo "<script>alert('{$error_message}')</script>";
-			}
-			
-			// Clear the session.
-			session_destroy();
-		?>
-	</body>
+</body>
 </html>

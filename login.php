@@ -25,6 +25,15 @@
 					<input type="text" name="name" size="16">
 					<br>
 					
+					<!-- Category -->
+					<strong>Category:</strong>
+					<select name="category">
+						<option value="general">General Knowledge</option>
+						<option value="comp_sci">Computer Science</option>
+						<option value="video_games">Video Games</option>
+					</select>
+					<br>
+					
 					<!-- Start game -->
 					<div class="container">
 						<input class="start-button" type="submit" value="Start Game" />

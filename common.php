@@ -32,8 +32,8 @@
             <fieldset>
                 <legend><strong>Login:</strong></legend>
                 <!--Name-->
-                <strong>Username:</strong>
-                <input type="text" name="username" size="16" title = 'Name must be letters only'>
+                <strong>Name:</strong>
+                <input type="text" name="name" size="16">
                 <br />
                 <br />
                 <strong>Password:</strong>

@@ -6,19 +6,17 @@ get_header();
 $data = file("./userdata/playerinfo.txt", FILE_SKIP_EMPTY_LINES);
 $_SESSION["category"] = $_POST["category"];
 $_SESSION["name"] = $_POST["name"];
+
 // Checking if there is a name submitted
 if (count($_POST) === 3) {
     ?><br><br><?php
 
+
     foreach($data as $value){
-        echo "iterated \n";
-        
         // Splitting each line of data into an array
         $value = explode(",",$value);
-        print_r($value);
 
         // Comparing submitted username with current value
-        echo $_POST["name"];
         if(in_array($_POST["name"], $value)){
             // Checking if the password matches
             if($value[1] == $_POST["password"]){
@@ -38,6 +36,7 @@ if (count($_POST) === 3) {
                     <h2>Invalid Password!</h2><br>
                     <a href="login.php">Try again!</a>
                 <?php
+                session_destroy();
                 exit();
             }
         }
@@ -53,6 +52,7 @@ if (count($_POST) === 3) {
         <h2>Name not found!</h2><br>
         <a href="login.php">Try again!</a>
     <?php
+    session_destroy();
     exit();
 }
 else{
@@ -61,5 +61,7 @@ else{
     ?>
     <a href="login.php">Try Again</a>
     <?php
+    session_destroy();
+    exit();
 }
 ?>

@@ -12,13 +12,14 @@ get_header();
                 <br/>
                 <br/>
                 <strong>Password:</strong>
-                (Password must include numbers and letters)
                 <input type ="text" name = "password">
-                </br>
-                </br>
+                (Password must include numbers and letters)
 
-                <!--To start the Game-->
+                </br>
+                <!--To sign up-->
                 <input type="submit" value="signup"/>
+                <br>
+                <a href = 'login.php'>Back</a>
             </fieldset>
          </form>
             </br>

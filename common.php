@@ -198,16 +198,16 @@
                 <legend><strong>Login:</strong></legend>
                 <!--Name-->
                 <strong>Name:</strong>
-                <input type="text" name="name" size="16">
+                <input type="text" name="name" size="16" pattern="^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$" title = 'Name must be letters only' required>
                 <br />
                 <br />
                 <strong>Password:</strong>
-                <input type ="text" name = "password">
+                <input type ="text" name = "password" required>
                 </br>
                 </br>
                 <!-- Category -->
 					      <strong>Category:</strong>
-					      <select name="category">
+					      <select name="category" required>
 					    	<option value="general">General Knowledge</option>
 					    	<option value="comp_sci">Computer Science</option>
 					    	<option value="video_games">Video Games</option>

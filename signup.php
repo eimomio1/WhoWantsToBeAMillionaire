@@ -4,7 +4,7 @@ get_header();
 ?>
 <div class="options">
         <form action="signup-submit.php" method="post">
-            <fieldset style = 'text-align:center'>
+            <fieldset style>
                 <legend><strong>Sign-Up:</strong></legend>
                 <!--Name-->
                 <strong>Name:</strong>

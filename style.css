@@ -1,6 +1,14 @@
 body {
 	background-color: #f5f7fa;
 	background-image: linear-gradient(to bottom, #b9d2e6, #f5f7fa);
+	font-family: sans-serif;
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	min-height: 100%;
+	position:relative;
 }
 
 .banner {

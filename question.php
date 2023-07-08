@@ -34,7 +34,6 @@
 			// If new game, set the question number to 1.
 			session_start();
 			if (!isset($_SESSION["q_num"])) $_SESSION["q_num"] = 1;
-			$_SESSION["category"] = "general"; // Fixed category for now.
 			
 			// Get the question data.
 			require_once "common.php";
@@ -44,51 +43,53 @@
 			$_SESSION["q_id"] = $q[5];
 		?>
 		
+		<!-- Scoreboard -->
+		<?php get_scoreboard($q_num); ?>
+		
 		<!-- Title and banner -->
 		<div class="gameName">
 			<h1>Who Wants To Be A Millionaire</h1>
 		</div>
-		<img src="./millionaire.avif" class="logo">
+		<img src="./millionaire.avif" class="logo" id="circle_mask">
 		<br>
-		<h2 class="money"><?= "\${$q[6]}" ?></h2>
-
-        <!-- Timer -->
+		
+		<!-- Timer -->
 		<div class="timerBox">
 			<p>Time remaining: <span id="timer">60</span> seconds</p>
 		</div>
 		
-		<div>
-			<table class="questionTable">
-				
-				<!-- Question -->
-				<tr style="height:100px;" class="questionTable">
-					<td colspan=2 class="questionTable"><?= $q[0] ?></td>
-				</tr>
-				
-				<!-- Answers -->
-				<tr class="questionTable">
-					<td class="questionTable"><?= "A: {$q[1]}" ?></td>
-					<td class="questionTable"><?= "B: {$q[2]}" ?></td>
-				</tr>
-				<tr class="questionTable">
-					<td class="questionTable"><?= "C: {$q[3]}" ?></td>
-					<td class="questionTable"><?= "D: {$q[4]}" ?></td>
-				</tr>
-			</table>
-		</div>
-		
 		<!-- Answer form -->
-		<div class="submitAnswer">
-			<form action="check.php" method="post">
-				<p>Select an answer:
-					<select name="answer" size="1">
-						<option value="<?= $q[1] ?>">A</option>
-						<option value="<?= $q[2] ?>">B</option>
-						<option value="<?= $q[3] ?>">C</option>
-						<option value="<?= $q[4] ?>">D</option>
-					</select>
-					<input type="submit" value="SUBMIT" class="submit">
-				</p>
+		<div>
+			<form action="check.php" method="POST">
+				<table class="questionTable">
+					
+					<!-- Question -->
+					<tr style="height:100px;">
+						<td colspan=2 class="questionTable"><?= $q[0] ?></td>
+					</tr>
+					
+					<!-- Answer buttons -->
+					<tr>
+						<td>
+							<button name="answer" value="<?= $q[1] ?>"type="submit"
+							class="questionTable button"><?= "A: {$q[1]}" ?></button>
+						</td>
+						<td>
+							<button name="answer" value="<?= $q[2] ?>"type="submit"
+							class="questionTable button"><?= "B: {$q[2]}" ?></button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button name="answer" value="<?= $q[3] ?>"type="submit"
+							class="questionTable button"><?= "C: {$q[3]}" ?></button>
+						</td>
+						<td>
+							<button name="answer" value="<?= $q[4] ?>"type="submit"
+							class="questionTable button"><?= "D: {$q[4]}" ?></button>
+						</td>
+					</tr>
+				</table>
 			</form>
 		</div>
 	</body>

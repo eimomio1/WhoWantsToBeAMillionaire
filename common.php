@@ -156,6 +156,18 @@
 	}
 	
 	
+	function get_scoreboard($q_num) {
+		echo "<table class='scoreboard'>";
+		for ($i = 15; $i > 0; $i--) {
+			$score = get_score($i);
+			if ($i != $q_num) echo "<tr>";
+			else echo "<tr class='score_hl'>";
+			echo "<td>{$i}</td><td>\${$score}</td></tr>";
+		}
+		echo "</table>";
+	}
+	
+	
 	function save_score($name, $score) {
 		
 		// Write the player's name and score to players.txt.

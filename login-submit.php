@@ -7,7 +7,7 @@ $data = file("./userdata/playerinfo.txt", FILE_SKIP_EMPTY_LINES);
 $_SESSION["category"] = $_POST["category"];
 $_SESSION["name"] = $_POST["name"];
 // Checking if there is a name submitted
-if (count($_POST) === 2) {
+if (count($_POST) === 3) {
     ?><br><br><?php
 
     foreach($data as $value){

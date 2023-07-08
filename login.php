@@ -1,32 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="style.css" rel="stylesheet">
+		<title>Who Wants to Be a Millionaire?</title>
+	</head>
+	<body>
+		
+		<!-- Header image and text -->
+		<div>
+			<img src="./millionaire.avif" alt="logo" class="banner"/>
+			<br>
+		</div>
+		<p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
+		
+    <!--main area-->
 <?php
 require __DIR__ . "/common.php" ;
-get_header();
 ?>
-    <p class="bannerText"><strong>Where you can win to be a millionaire!<strong></p>
-
-    <!--main area-->
+<div>
 <?php
 generate_login('login-submit.php');
 ?>
-    <br />
-    <br />
-    <?php 
-        $user_info = explode("\n", file_get_contents('./userdata/playerinfo.txt'));
-        foreach ($user_info as $sub_user_info) {
-            $name_parts = explode(",", $sub_user_info);
-            if ($name_parts[0] == $username) {
-                return true;
-            }
-        }
-    ?>
+</div>
+<br>
     	<!-- Leaderboard -->
-		<div id="scroll-container">
+		<div id="scroll-container" style = "position:static">
 			<div id="scroll-text">
 				<?php
-					require_once "common.php";
 					get_leaderboard_data();
 				?>
 			</div>
 		</div>
+
+
 </body>
 </html>

@@ -1,6 +1,30 @@
 body {
 	background-color: #f5f7fa;
 	background-image: linear-gradient(to bottom, #b9d2e6, #f5f7fa);
+	font-family: sans-serif;
+	height: 100%;
+	width: 100%;
+}
+
+html {
+	min-height: 100%;
+	position:relative;
+}
+
+.button {
+	transition-duration: 0.4s;
+}
+
+.button:hover {
+	background-color: #4CAF50;
+	color: white;
+}
+
+#circle_mask {
+	width: 350px;
+	height: 350px;
+	object-fit: cover;
+	border-radius: 50%;
 }
 
 .gameName{
@@ -59,8 +83,27 @@ body {
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.questionTable td {
-	padding: 10px;
+.questionTable button {
+	height: 100%;
+	width: 200px;
+}
+
+.score_hl {
+	background-color: gold;
+	color: red;
+	border: red;
+}
+
+.scoreboard {
+	position: fixed;
+	top: 25%;
+	right: 15%;
+	text-align: center;
+}
+
+.scoreboard td {
+	border-radius: 10px;
+	padding: 3px;
 }
 
 .submitAnswer {

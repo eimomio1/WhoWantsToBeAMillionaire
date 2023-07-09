@@ -8,11 +8,11 @@ get_header();
                 <legend><strong>Sign-Up:</strong></legend>
                 <!--Name-->
                 <strong>Name:</strong>
-                <input type="text" name="name" size="16" pattern="^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$" title = 'Name must be letters only'>
+                <input type="text" name="name" size="16" pattern="^([A-Za-z]+ )+[A-Za-z]+$|^[A-Za-z]+$" title = 'Name must be letters only' required>
                 <br/>
                 <br/>
                 <strong>Password:</strong>
-                <input type ="text" name = "password">
+                <input type ="text" name = "password" required>
                 (Password must include numbers and letters)
 
                 </br>
